@@ -1,0 +1,102 @@
+.home__container {
+    height: 635px;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    &_ball-area {
+        position: relative;
+        width: 60%;
+        height: 300px;
+        background-color: #00bfff;
+        border-bottom: solid 3px #228b22;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        overflow: hidden;
+
+        .ball--container {
+            position: absolute;
+            bottom: 0px;
+            left: -60px;
+            width: 60px;
+            height: 60px;
+            animation: moveBallX 1.7s linear infinite;
+        }
+
+        .ball--sub-container {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            animation: moveBallY 3.5s linear infinite;
+        }
+
+        .ball-bounce {
+            width: 60px;
+            height: 60px;
+            border-radius: 40px;
+            background: #ff0000;
+            border: 3px solid #d82020;
+            //animation: ballChangeShape 40s infinite;
+        }
+    }
+
+    &_controls {
+        padding: 8px 0 0 0;
+    }
+}
+
+@keyframes moveBallX {
+    0% {
+        transform: translateX(0px);
+    }
+    100% {
+        transform: translateX(950px);
+    }
+}
+
+@keyframes moveBallY {
+    0%,
+    25%,
+    50%,
+    75%,
+    100% {
+        transform: translateY(-180px);
+        animation-timing-function: ease-in;
+    }
+    10%,
+    35%,
+    60%,
+    85% {
+        transform: translateY(0px);
+        animation-timing-function: ease-out;
+    }
+}
+
+@keyframes ballChangeShape {
+    0%,
+    10%,
+    20%,
+    35%,
+    45%,
+    60%,
+    70%,
+    85%,
+    95%,
+    100% {
+        transform: scaleX(1) scaleY(1);
+    }
+    11%,
+    36%,
+    61%,
+    86% {
+        transform: scaleX(1.4) scaleY(0.6);
+    }
+    15%,
+    40%,
+    65%,
+    90% {
+        transform: scaleX(0.6) scaleY(1.4);
+    }
+}
